@@ -7,7 +7,7 @@
 // module: example_tb
 // hdl: Verilog
 //
-// author: Prof. Rob Marano
+// author: Your Name <your.name@cooper.edu>
 //
 ///////////////////////////////////////////////////////////////////////////////
 
@@ -19,7 +19,10 @@ module example_tb;
 
    reg [3:0] a, b;   //inputs are reg for test bench
    wire [3:0] c;     //outputs are wire for test bench
-
+   
+   //
+   // ---------------- INITIALIZE TEST BENCH ----------------
+   //
    initial
      begin
         $dumpfile("example.vcd"); // for Makefile, make dump file same as module name
@@ -44,6 +47,9 @@ module example_tb;
       $finish;
    end
 
+   //
+   // ---------------- INSTANTIATE UNIT UNDER TEST (UUT) ----------------
+   //
    example uut(.A(a), .B(b), .C(c));
 
 endmodule
