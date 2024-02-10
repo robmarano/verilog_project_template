@@ -4,7 +4,7 @@
 //
 // An example testbench module for your Computer Architecture Elements Catalog
 //
-// module: example_tb
+// module: tb_example_module
 // hdl: Verilog
 //
 // author: Your Name <your.name@cooper.edu>
@@ -13,9 +13,9 @@
 
 `timescale 1ns/100ps
 
-`include "./example.sv"
+`include "./example_module.sv"
 
-module example_tb;
+module tb_example_module;
 
    reg [3:0] a, b;   //inputs are reg for test bench
    wire [3:0] c;     //outputs are wire for test bench
@@ -25,7 +25,7 @@ module example_tb;
    //
    initial
      begin
-        $dumpfile("example.vcd"); // for Makefile, make dump file same as module name
+        $dumpfile("tb_example_module.vcd"); // for Makefile, make dump file same as module name
         $dumpvars(0, uut);
       //   $monitor("A is %b, B is %b, C is %b", a, b, c);
       //   #50 A = 4'b1100;
@@ -50,8 +50,8 @@ module example_tb;
    //
    // ---------------- INSTANTIATE UNIT UNDER TEST (UUT) ----------------
    //
-   example uut(.A(a), .B(b), .C(c));
+   example_module uut(.A(a), .B(b), .C(c));
 
 endmodule
 
-// `endif // example_tb
+// `endif // tb_example_module

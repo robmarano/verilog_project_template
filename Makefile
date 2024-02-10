@@ -12,11 +12,11 @@
 # CHANGE THESE THREE LINES FOR YOUR DESIGN
 #
 #TOOL INPUT
-COMPONENT = example
+COMPONENT = example_module	#THIS NEEDS TO MATCH THE NAME OF YOUR MODULE
 #SRC = $(shell ls *.sv)
 SRC = $(wildcard *.sv)
 SIM_ARGS=+a=3 +b=2 +s=0
-TBOUTPUT = $(COMPONENT).vcd	# THIS NEEDS TO MATCH THE OUTPUT FILE
+TBOUTPUT = tb_$(COMPONENT).vcd	# THIS NEEDS TO MATCH THE OUTPUT FILE
 									# FROM YOUR TESTBENCH
 ###############################################################################
 # BE CAREFUL WHEN CHANGING ITEMS BELOW THIS LINE
@@ -44,4 +44,4 @@ display: $(TBOUTPUT)
 	$(VIEWER) $(TBOUTPUT) &
 
 clean:
-	/bin/rm -f $(COMPONENT).vvp *.vcd a.out compiler.out
+	/bin/rm -f $(COMPONENT) $(COMPONENT).vvp $(TBOUTPUT) *.vcd a.out compiler.out

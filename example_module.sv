@@ -4,17 +4,17 @@
 //
 // An example module for your Computer Architecture Elements Catalog
 //
-// module: example
+// module: example_module
 // hdl: Verilog
 //
 // author: Your Name <your.name@cooper.edu>
 //
 ///////////////////////////////////////////////////////////////////////////////
 
-`ifndef EXAMPLE
-`define EXAMPLE
+`ifndef EXAMPLE_MODULE
+`define EXAMPLE_MODULE
 
-module example(A, B, C);
+module example_module(A, B, C);
    //
    // ---------------- PORT DEFINITIONS ----------------
    //
@@ -30,4 +30,4 @@ module example(A, B, C);
 
 endmodule
 
-`endif // EXAMPLE
+`endif // EXAMPLE_MODULE
