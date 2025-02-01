@@ -6,6 +6,7 @@
 //
 // module: example_module
 // hdl: Verilog
+// modeling: choose from {Gate Level Modeling, Behavioral Modeling, RTL Modeling}
 //
 // author: Your Name <your.name@cooper.edu>
 //
@@ -13,6 +14,7 @@
 
 `ifndef EXAMPLE_MODULE
 `define EXAMPLE_MODULE
+// DO NOT FORGET TO RENAME MODULE_NAME to match your module_name
 
 module example_module(A, B, C);
    //

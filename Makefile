@@ -12,7 +12,12 @@
 # CHANGE THESE THREE LINES FOR YOUR DESIGN
 #
 #TOOL INPUT
-COMPONENT = example_module	#THIS NEEDS TO MATCH THE NAME OF YOUR MODULE
+#THIS NEEDS TO MATCH THE NAME OF YOUR MODULE
+# just type on command line: make COMPONENT=module_name {compile, simulate, display, clean}
+ifeq ($(COMPONENT),)
+  $(error COMPONENT must be defined.  Please specify it on the command line, e.g., make COMPONENT=my_component)
+endif
+
 #SRC = $(shell ls *.sv)
 SRC = $(wildcard *.sv)
 SIM_ARGS=+a=3 +b=2 +s=0
@@ -35,12 +40,15 @@ SOUTPUT = -lxt2		#SIMULATOR OUTPUT TYPE
 #MAKE DIRECTIVES
 .PHONY: compile simulate display clean
 compile : $(SRC)
+	@echo "Compiling component: $(COMPONENT)"
 	$(COMPILER) $(COFLAGS) -o $(COMPONENT).vvp $(SRC)
 
 simulate: $(COMPONENT).vvp
+	@echo "Simulating component: $(COMPONENT)"
 	$(SIMULATOR) $(SFLAGS) $(COMPONENT).vvp $(SOUTPUT)
 
 display: $(TBOUTPUT)
+	@echo "Opening GTKwave for component: $(COMPONENT)"
 	$(VIEWER) $(TBOUTPUT) &
 
 clean:
